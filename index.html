@@ -797,6 +797,155 @@ footer a:hover { color: var(--gold); }
 .hero-right > *:nth-child(1) { animation-delay: 0.2s; }
 .hero-right > *:nth-child(2) { animation-delay: 0.35s; }
 .hero-right > *:nth-child(3) { animation-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════
+   HAMBURGER BUTTON
+═══════════════════════════════════════════ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  z-index: 901;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ═══════════════════════════════════════════
+   PROFILE PHOTO STYLES
+═══════════════════════════════════════════ */
+.auth-av img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .nav { padding: 0 2rem; }
+
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 5rem 2.5rem 3rem; }
+  .hero-right { padding: 2.5rem 2.5rem 4rem; align-items: center; }
+
+  section { padding: 4.5rem 2.5rem; }
+  #cta { padding: 6rem 2.5rem; }
+
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .modules { grid-template-columns: 1fr; }
+  .feat-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .feat-cards { grid-template-columns: repeat(2, 1fr); }
+  .aud-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+  .ben-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .auth-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .auth-card { max-width: 320px; }
+  .auth-boxes { grid-template-columns: repeat(3, 1fr); }
+
+  .dur-strip { flex-wrap: wrap; }
+  .dur-item { flex: 0 0 calc(50% - 2rem); border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 1rem; margin-bottom: 1rem; }
+  .dur-item:last-child { border-bottom: none; }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav { padding: 0 1.25rem; position: relative; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(8,12,20,0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-dark);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 0.9rem; padding: 0.4rem 0; }
+
+  /* Hero */
+  .hero-left { padding: 4.5rem 1.25rem 2.5rem; }
+  .hero-right { padding: 1.5rem 1.25rem 3rem; }
+  .hero-sub { max-width: 100%; }
+  .hero-counters { flex-wrap: wrap; gap: 1.5rem; padding-top: 1.8rem; margin-top: 2.5rem; }
+  .hc-item { border-right: none; padding-right: 0; margin-right: 0; flex: 1 0 40%; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns a { text-align: center; justify-content: center; }
+
+  /* Sections */
+  section { padding: 4rem 1.25rem; }
+  #cta { padding: 5rem 1.25rem; }
+
+  /* Grids → single column */
+  .why-grid { grid-template-columns: 1fr; background: none; gap: 1rem; }
+  .why-cell { border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; }
+  .modules { grid-template-columns: 1fr; }
+  .feat-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .feat-cards { grid-template-columns: 1fr 1fr; }
+  .aud-grid { grid-template-columns: 1fr; }
+  .tech-grid { grid-template-columns: 1fr; }
+  .ben-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .stats-quad { grid-template-columns: 1fr 1fr; }
+  .auth-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .auth-card { max-width: 100%; }
+  .auth-boxes { grid-template-columns: repeat(3, 1fr); }
+
+  /* Duration strip */
+  .dur-strip { flex-direction: column; padding: 1.5rem; }
+  .dur-item { flex: none; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1rem 0; }
+  .dur-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  /* Terminal */
+  .terminal { max-width: 100%; }
+
+  /* Book 3D */
+  .book-3d { width: 160px; height: 214px; }
+  .book-spine { height: 214px; }
+  .book-cover { width: 148px; height: 214px; }
+
+  /* CTA */
+  .cta-btns { flex-direction: column; align-items: center; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center; }
+
+  /* Features */
+  .feat-layout .demo-panel { order: -1; }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤480px)
+═══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .feat-cards { grid-template-columns: 1fr; }
+  .auth-boxes { grid-template-columns: 1fr; }
+  .stats-quad { grid-template-columns: 1fr; }
+  .s-body { margin-bottom: 2rem; }
+  .hc-num { font-size: 2.2rem; }
+  .auth-layout { gap: 1.5rem; }
+  .ben-layout { gap: 2rem; }
+}
 </style>
 </head>
 <body>
@@ -807,13 +956,16 @@ footer a:hover { color: var(--gold); }
     <div class="logo-pip">🐍</div>
     <span class="logo-text">Learn <span>Python</span></span>
   </a>
-  <div class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
     <a href="#why">Why Python</a>
     <a href="#curriculum">Curriculum</a>
     <a href="#features">Features</a>
     <a href="#audience">For Schools</a>
     <a href="#benefits">Benefits</a>
-    <a href="https://github.com/arooj-26/python-book" target="_blank" class="nav-cta">GitHub →</a>
+    <a href="#author" class="nav-cta">Meet the Author →</a>
   </div>
 </nav>
 
@@ -830,7 +982,7 @@ footer a:hover { color: var(--gold); }
       A <strong>complete, browser-based interactive book</strong> — 17 chapters from absolute beginner to advanced professional Python. Students <strong>run real code in their browser.</strong> No setup. No friction. Just learning.
     </p>
     <div class="hero-btns">
-      <a href="https://github.com/arooj-26/python-book" target="_blank" class="btn-gold">📚 Access the Book</a>
+      <a href="#curriculum" class="btn-gold">📚 Explore the Book</a>
       <a href="#curriculum" class="btn-outline-w">Explore Curriculum ↓</a>
     </div>
     <div class="hero-counters">
@@ -1323,13 +1475,21 @@ s = <span class="c-cl">Student</span>(<span class="c-st">"Arooj"</span>, <span c
   <div class="auth-layout">
     <div class="auth-card">
       <div class="auth-banner">
-        <div class="auth-av">👨‍💻</div>
+        <!-- ╔══════════════════════════════════════════╗
+             ║  YOUR PROFILE PHOTO GOES HERE            ║
+             ║  Replace "your-photo.jpg" with the path  ║
+             ║  or URL of your profile image.           ║
+             ║  Ideal size: 200×200 px or larger.       ║
+             ╚══════════════════════════════════════════╝ -->
+        <div class="auth-av">
+          <img src="your-photo.jpg" alt="Muhammad Shaheer Khan Niazi"
+               onerror="this.parentElement.innerHTML='👨‍💻'">
+        </div>
       </div>
       <div class="auth-body">
         <h3>Muhammad Shaheer<br>Khan Niazi</h3>
         <div class="auth-role">Python Educator &amp; Developer</div>
         <p>Creator of the Learn Python Programming interactive book — built to make Python education interactive, accessible, and free for every student worldwide.</p>
-        <a class="auth-gh" href="https://github.com/arooj-26/python-book" target="_blank">⬡ &nbsp;View GitHub Repository</a>
       </div>
     </div>
 
@@ -1357,8 +1517,8 @@ s = <span class="c-cl">Student</span>(<span class="c-st">"Arooj"</span>, <span c
     Access the complete 17-chapter book, explore every interactive feature firsthand, and share it with your faculty — all for free, starting today.
   </p>
   <div class="cta-btns">
-    <a href="https://github.com/arooj-26/python-book" target="_blank" class="btn-gold">📚 Access the Full Book</a>
-    <a href="https://github.com/arooj-26/python-book" target="_blank" class="btn-outline-w">⭐ Star on GitHub</a>
+    <a href="#curriculum" class="btn-gold">📚 Explore the Curriculum</a>
+    <a href="#features" class="btn-outline-w">✦ See Features</a>
   </div>
   <div class="cta-tags">
     <span class="ct-tag">🏫 Secondary Schools</span>
@@ -1379,11 +1539,25 @@ s = <span class="c-cl">Student</span>(<span class="c-st">"Arooj"</span>, <span c
     <span>Learn Python Programming — Open Source Interactive Curriculum</span>
   </div>
   <div>
-    <a href="https://github.com/arooj-26/python-book" target="_blank">GitHub</a>
-    &nbsp;·&nbsp; Docusaurus 3 · Pyodide WASM · React 19
+    Docusaurus 3 · Pyodide WASM · React 19
     &nbsp;·&nbsp; By Muhammad Shaheer Khan Niazi
   </div>
 </footer>
 
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  // Close menu when a nav link is clicked
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+</script>
 </body>
 </html>
